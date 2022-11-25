@@ -6,8 +6,6 @@ import styles from "./HeaderCartButton.module.css";
 const HeaderCartButton = (props) => {
   const cartContext = useContext(CartContext);
 
-  console.log(cartContext.items);
-
   const itemsCount = cartContext.items.reduce(
     (previousValue, item) => previousValue + item.amount,
     0
