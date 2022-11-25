@@ -6,11 +6,7 @@ const Cart = (props) => {
   const cartItems = (
     <ul className={styles["cart-items"]}>
       <CartContext.Consumer>
-        {(cart) =>
-          cart.items.map((item) => (
-            <li key={item.id}>{item.name}</li>
-          ))
-        }
+        {(cart) => cart.items.map((item) => <li key={item.id}>{item.name}</li>)}
       </CartContext.Consumer>
     </ul>
   );
