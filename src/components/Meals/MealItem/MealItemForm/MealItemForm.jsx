@@ -1,4 +1,4 @@
-import Input from "../../../UI/Card/Input";
+import Input from "../../../UI/Input";
 import styles from "./MealItemForm.module.css";
 
 const MealItemForm = (props) => {
