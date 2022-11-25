@@ -11,8 +11,9 @@ const cartReducer = (state, action) => {
     const items = state.items.concat(action.item); // concat add item to a array by creating a new array.
     const totalAmount =
       state.totalAmount + action.item.price * action.item.amount;
-
+    
     return { items: items, totalAmount: totalAmount };
+    
   } else if (action.type === "DELETE_ITEM") {
   }
 

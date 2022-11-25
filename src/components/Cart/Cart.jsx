@@ -22,7 +22,7 @@ const Cart = (props) => {
         <span>Total Amount</span>
         <span>
           <CartContext.Consumer>
-            {(cart) => cart.totalAmount}
+            {(cart) => cart.totalAmount.toFixed(2)}
           </CartContext.Consumer>
         </span>
       </div>
