@@ -7,7 +7,7 @@ const Modal = (props) => {
 
   return ReactDOM.createPortal(
     <>
-      <Backdrop />
+      <Backdrop onClick={props.onClose} />
       <ModalOverlay>{props.children}</ModalOverlay>
     </>,
     overlay

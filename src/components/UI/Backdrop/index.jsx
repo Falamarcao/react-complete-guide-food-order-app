@@ -1,5 +1,7 @@
 import styles from "./Backdrop.module.css";
 
-const Backdrop = () => <div className={styles.backdrop}></div>;
+const Backdrop = (props) => (
+  <div className={styles.backdrop} onClick={props.onClick}></div>
+);
 
 export default Backdrop;
