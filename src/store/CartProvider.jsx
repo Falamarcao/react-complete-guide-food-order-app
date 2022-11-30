@@ -7,14 +7,14 @@ const defaultCartState = {
 };
 
 const cartReducer = (state, action) => {
+  
+
   if (action.type === "ADD_ITEM") {
-    let updatedItem, updatedItems;
+    // copy current state to ensure integrity
+    const items = [...state.items];
 
     const totalAmount =
       state.totalAmount + action.item.price * action.item.amount;
-
-    // copy current state to ensure integrity
-    const items = [...state.items];
 
     // check if element is already in the cart - return -1 or id
     const itemId = items.findIndex((item) => item.id === action.item.id);
@@ -26,7 +26,21 @@ const cartReducer = (state, action) => {
     }
 
     return { items: items, totalAmount: totalAmount };
-  } else if (action.type === "DELETE_ITEM") {
+  } else if (action.type === "REMOVE_ITEM") {
+    // copy current state to ensure integrity
+    const items = [...state.items];
+
+    const itemId = items.findIndex((item) => item.id === action.itemId);
+
+    const totalAmount = state.totalAmount - items[itemId].price;
+
+    if (items[itemId].amount === 1) {
+      items.splice(itemId, 1);
+    } else {
+      items[itemId].amount -= 1;
+    }
+
+    return { items: items, totalAmount: totalAmount };
   }
 
   return defaultCartState;
